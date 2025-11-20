@@ -1,0 +1,34 @@
+# AWS EKS Cluster Configuration
+aws_region                 = "us-east-1"
+environment                = "dev"
+project_name               = "eks-project"
+cluster_name               = "my-eks-cluster"
+kubernetes_version         = "1.28"
+
+# Networking
+vpc_cidr                   = "10.0.0.0/16"
+public_subnet_cidrs        = ["10.0.1.0/24", "10.0.2.0/24"]
+private_subnet_cidrs       = ["10.0.101.0/24", "10.0.102.0/24"]
+
+# Node Configuration
+node_instance_type         = "t3.medium"
+node_disk_size             = 50
+desired_node_count         = 3
+min_node_count             = 1
+max_node_count             = 10
+
+# Optional: SSH key for node access
+ec2_ssh_key_name           = ""
+
+# Access Control
+public_access_cidrs        = ["0.0.0.0/0"]
+
+# Logging
+log_retention_in_days      = 7
+
+# Cost Optimization: Spot Instances
+enable_spot_instances      = false
+spot_instance_types        = ["t3.medium", "t3.large"]
+spot_desired_node_count    = 2
+spot_min_node_count        = 0
+spot_max_node_count        = 5
